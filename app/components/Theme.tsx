@@ -2,7 +2,7 @@ import React from "react";
 
 const Modal = () => {
   return (
-    <div className="dropdown mb-72">
+    <div className="dropdown mb-72 mt-5">
       <div tabIndex={0} role="button" className="btn m-1">
         Theme
         <svg
@@ -33,8 +33,8 @@ const Modal = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Retro"
-            value="retro"
+            aria-label="Sunset"
+            value="sunset"
           />
         </li>
         <li>
@@ -42,8 +42,8 @@ const Modal = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Cyberpunk"
-            value="cyberpunk"
+            aria-label="Lemonade"
+            value="lemonade"
           />
         </li>
         <li>
@@ -51,8 +51,8 @@ const Modal = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Valentine"
-            value="valentine"
+            aria-label="Forest"
+            value="forest"
           />
         </li>
         <li>
@@ -60,8 +60,17 @@ const Modal = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Aqua"
-            value="aqua"
+            aria-label="Cupcake"
+            value="cupcake"
+          />
+        </li>
+        <li>
+          <input
+            type="radio"
+            name="theme-dropdown"
+            className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+            aria-label="Garden"
+            value="garden"
           />
         </li>
       </ul>
