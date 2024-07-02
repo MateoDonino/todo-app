@@ -6,25 +6,26 @@ import { useState } from "react";
 import { addTodo } from "../../api";
 
 const AddTask = () => {
-  const [modalOpen, setModalOopen] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const [newTaskValue, setNewTaskValue] = useState<string>("");
   const handleSumbitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await addTodo({ id: 3, text: newTaskValue });
+    await addTodo({ id: "3", text: newTaskValue });
     setNewTaskValue("");
+    setModalOpen(false);
   };
 
   return (
     <div>
       <button
-        onClick={() => setModalOopen(true)}
+        onClick={() => setModalOpen(true)}
         className="btn btn-primary w-full text-lg"
       >
         Add New Task
         <FaPlus size={16} />
       </button>
-      <Modal modalOpen={modalOpen} setModalOpen={setModalOopen}>
+      <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <form onSubmit={handleSumbitNewTodo}>
           <h3 className="text-lg font-bold">Add New Task</h3>{" "}
           <div className="modal-action">
