@@ -1,33 +1,40 @@
 "use client";
-import React, { FormEventHandler } from "react";
-import { FaPlus } from "react-icons/fa6";
+
+import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
-import { useState } from "react";
-import { addTodo } from "../../api";
+import { FormEventHandler, useState } from "react";
+import { addTodo } from "@/api";
+import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
 
 const AddTask = () => {
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-
   const [newTaskValue, setNewTaskValue] = useState<string>("");
-  const handleSumbitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
+
+  const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await addTodo({ id: "3", text: newTaskValue });
+    await addTodo({
+      id: uuidv4(),
+      text: newTaskValue,
+    });
     setNewTaskValue("");
     setModalOpen(false);
+    router.refresh();
   };
 
   return (
     <div>
       <button
         onClick={() => setModalOpen(true)}
-        className="btn btn-primary w-full text-lg"
+        className="btn btn-primary w-full"
       >
-        Add New Task
-        <FaPlus size={16} />
+        Add new task <AiOutlinePlus className="ml-2" size={18} />
       </button>
+
       <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
-        <form onSubmit={handleSumbitNewTodo}>
-          <h3 className="text-lg font-bold">Add New Task</h3>{" "}
+        <form onSubmit={handleSubmitNewTodo}>
+          <h3 className="font-bold text-lg">Add new task</h3>
           <div className="modal-action">
             <input
               value={newTaskValue}
@@ -36,8 +43,8 @@ const AddTask = () => {
               placeholder="Type here"
               className="input input-bordered w-full"
             />
-            <button className="btn" type="submit">
-              Sumbit
+            <button type="submit" className="btn">
+              Submit
             </button>
           </div>
         </form>
