@@ -44,7 +44,7 @@ const AddTask = () => {
               className="input input-bordered w-full"
             />
             <button type="submit" className="btn">
-              Submit
+              Submit.
             </button>
           </div>
         </form>
